@@ -925,6 +925,7 @@ export function HubModelPicker({
                       )
                     }
                     vramStatus={null}
+                    tooltipText={c.repo_id}
                   />
                   {expandedGguf === c.repo_id && (
                     <GgufVariantExpander
@@ -958,6 +959,7 @@ export function HubModelPicker({
                           })
                         }
                         vramStatus={null}
+                        tooltipText={c.repo_id}
                       />
                     </div>
                     <ModelDeleteAction
@@ -1008,6 +1010,12 @@ export function HubModelPicker({
                         }
                       }}
                       vramStatus={null}
+                      tooltipText={
+                        <>
+                          <span className="block break-words">{m.model_id ?? m.display_name}</span>
+                          <span className="block mt-1 text-[10px] text-muted-foreground break-all">{m.path}</span>
+                        </>
+                      }
                     />
                     {expandedGguf === m.id && (
                       <GgufVariantExpander
@@ -1211,6 +1219,12 @@ export function HubModelPicker({
                         }
                       }}
                       vramStatus={null}
+                      tooltipText={
+                        <>
+                          <span className="block break-words">{m.model_id ?? m.display_name}</span>
+                          <span className="block mt-1 text-[10px] text-muted-foreground break-all">{m.path}</span>
+                        </>
+                      }
                     />
                     {expandedGguf === m.id && (
                       <GgufVariantExpander
@@ -1264,6 +1278,7 @@ export function HubModelPicker({
                         }
                         vramEst={isKnownGgufRepo(id) ? undefined : vram?.est}
                         gpuGb={gpu.available ? gpu.memoryTotalGb : undefined}
+                        tooltipText={id}
                       />
                       {expandedGguf === id && (
                         <GgufVariantExpander
@@ -1317,6 +1332,7 @@ export function HubModelPicker({
                       }
                       vramEst={isKnownGgufRepo(id) ? undefined : vram?.est}
                       gpuGb={gpu.available ? gpu.memoryTotalGb : undefined}
+                      tooltipText={id}
                     />
                     {expandedGguf === id && (
                       <GgufVariantExpander
@@ -1371,6 +1387,7 @@ export function HubModelPicker({
                         }
                         vramEst={isSearchGguf ? undefined : vram?.est}
                         gpuGb={gpu.available ? gpu.memoryTotalGb : undefined}
+                        tooltipText={id}
                       />
                       {expandedGguf === id && (
                         <GgufVariantExpander
